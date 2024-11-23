@@ -1,0 +1,27 @@
+.productCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    gap: 20px;
+    width: 230px;
+}
+.productCard span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.image{
+    height: 230px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
