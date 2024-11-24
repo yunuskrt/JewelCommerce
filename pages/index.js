@@ -1,33 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import Head from 'next/head'
-import { SwiperSlide } from 'swiper/react'
-import ProductCard from '@components/product_card'
-import ProductCarousel from '@components/product_carousel'
+
+import LoadingView from '@components/loading_view'
+import ProductList from '@components/product_list'
 
 const Home = () => {
-	const data = [
-		{ title: 'Slide 1', price: 'Price 1' },
-		{ title: 'Slide 2', price: 'Price 2' },
-		{ title: 'Slide 3', price: 'Price 3' },
-		{ title: 'Slide 4', price: 'Price 4' },
-		{ title: 'Slide 5', price: 'Price 5' },
-		{ title: 'Slide 6', price: 'Price 6' },
-		{ title: 'Slide 7', price: 'Price 7' },
-		{ title: 'Slide 8', price: 'Price 8' },
-		{ title: 'Slide 9', price: 'Price 9' },
-	]
+	const [productsData, setProductsData] = useState([])
+	const [loading, setLoading] = useState(false)
+	useEffect(() => {
+		fetchData()
+	}, [])
+	const fetchData = async () => {
+		try {
+			setLoading(true)
+			const response = await axios.get('/api/v1/products')
+			setProductsData(response.data)
+		} catch (error) {
+			console.error('Error fetching data:', error)
+		} finally {
+			setLoading(false)
+		}
+	}
 	return (
 		<>
 			<Head>
 				<title>Jewel E-Commerce</title>
 			</Head>
-			<ProductCarousel>
-				{data.map((item, index) => (
-					<SwiperSlide key={index}>
-						<ProductCard {...item} />
-					</SwiperSlide>
-				))}
-			</ProductCarousel>
+			{loading ? <LoadingView /> : <ProductList data={productsData} />}
 		</>
 	)
 }

@@ -1,0 +1,22 @@
+.starContainer {
+    display: flex;
+}
+
+.star {
+    width: 16px;
+    height: 16px;
+    
+    clip-path: polygon(50% 0%,
+            63% 34%,
+            98% 34%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 34%,
+            37% 34%);
+            
+    background-color: lightgray;
+    background: linear-gradient(90deg, var(--yellow-gold) var(--fill-percentage), lightgray var(--fill-percentage));
+}

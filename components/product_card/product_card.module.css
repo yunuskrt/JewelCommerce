@@ -12,16 +12,79 @@
     text-overflow: ellipsis;
 }
 
-.image{
+.imageContainer {
     height: 230px;
     width: 100%;
-    border-radius: 10px;
-    background-color: lightgray;
+    object-fit: contain;
+}
+.image{
+    border-radius: 20px;
 }
 
-.productInfo {
+.infoGroup {
     display: flex;
     flex-direction: column;
     gap: 5px;
     width: 100%;
+}
+
+.name{
+    font-family: var(--font-montserrat-medium);
+    font-size: 15px;
+}
+
+.price{
+    font-family: var(--font-montserrat-regular);
+    font-size: 15px;
+}
+
+.colorPalette {
+    display: flex;
+    gap: 5px;
+}
+.colorSelector {
+    width: 26px;    
+    height: 26px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+.colorSelector.selected {
+    border-color: var(--border-color);
+}
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.color.yellow {
+    background-color: var(--yellow-gold);
+}
+
+.color.white {
+    background-color: var(--white-gold);
+}
+
+.color.rose {
+    background-color: var(--rose-gold);
+}
+
+.colorText {
+    font-family: var(--font-avenir-book);
+    font-size: 12px;
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ratingText{
+    font-family: var(--font-avenir-book);
+    font-size: 14px;
 }
