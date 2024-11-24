@@ -16,12 +16,13 @@ const ProductCard = ({ images, name, price, popularityScore }) => {
 					width={230}
 					height={230}
 					className={styles.image}
+					priority
 				/>
 			</div>
 
 			<div className={styles.infoGroup}>
 				<span className={styles.name}>{name}</span>
-				<span className={styles.price}>{price}</span>
+				<span className={styles.price}>${price.toFixed(2)} USD</span>
 			</div>
 
 			<div className={styles.infoGroup}>

@@ -14,7 +14,7 @@ const ProductList = ({ data }) => {
 						<ProductCard
 							images={product.images}
 							name={product.name}
-							price='Price'
+							price={product.price}
 							popularityScore={product.popularityScore}
 						/>
 					</SwiperSlide>
